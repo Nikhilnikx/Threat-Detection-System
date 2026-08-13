@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | Threat Detection System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <p class="eyebrow">Threat Detection System</p>
+    <h1>Security console</h1>
+    <p>Sign in to view events, alerts, and runtime monitoring.</p>
+    <form id="login-form">
+      <label>Email<input id="email" type="email" required></label>
+      <label>Password<input id="password" type="password" required></label>
+      <button type="submit">Sign in</button>
+      <p id="login-error" class="error" aria-live="polite"></p>
+    </form>
+  </main>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
