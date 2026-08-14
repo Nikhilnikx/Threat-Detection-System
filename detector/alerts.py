@@ -8,15 +8,35 @@ ALERT_RISK_THRESHOLD = 50
 
 
 def create_alert_for_event(event):
-    """Create one open alert for a high-risk event, if one does not exist."""
+    """
+    Create one alert for a high-risk threat event.
+    Avoid duplicate alerts.
+    """
+
     if event.risk_score < ALERT_RISK_THRESHOLD:
         return None
 
-    db.session.flush()
-    existing_alert = Alert.query.filter_by(event_id=event.id).first()
+
+    existing_alert = Alert.query.filter_by(
+        event_id=event.id
+    ).first()
+
+
     if existing_alert:
         return existing_alert
 
-    alert = Alert(event_id=event.id)
+
+
+    alert = Alert(
+        event_id=event.id,
+        title=f"{event.event_type} detected",
+        description=event.description,
+        severity=event.severity,
+        risk_score=event.risk_score,
+        status="open"
+    )
+
+
     db.session.add(alert)
+
     return alert

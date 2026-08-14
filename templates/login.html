@@ -1,23 +1,87 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign in | Threat Detection System</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-</head>
-<body class="login-page">
-  <main class="login-card">
-    <p class="eyebrow">Threat Detection System</p>
-    <h1>Security console</h1>
-    <p>Sign in to view events, alerts, and runtime monitoring.</p>
-    <form id="login-form">
-      <label>Email<input id="email" type="email" required></label>
-      <label>Password<input id="password" type="password" required></label>
-      <button type="submit">Sign in</button>
-      <p id="login-error" class="error" aria-live="polite"></p>
-    </form>
-  </main>
-  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="brand">
+            THREAT DETECTION SYSTEM
+        </div>
+
+
+        <h1>
+            Security console
+        </h1>
+
+
+        <p class="subtitle">
+            Sign in to view events, alerts, and runtime monitoring.
+        </p>
+
+
+
+        <form id="login-form">
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+
+            <button type="submit">
+                Sign in
+            </button>
+
+
+
+            <p id="error-message"></p>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+
+{% endblock %}

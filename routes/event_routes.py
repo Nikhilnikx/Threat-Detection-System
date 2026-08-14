@@ -1,4 +1,10 @@
-from flask import Blueprint, jsonify, request
+from flask import (
+    Blueprint,
+    jsonify,
+    request,
+    render_template
+)
+
 from flask_login import current_user, login_required
 
 from app import db
@@ -29,6 +35,14 @@ def event_to_dict(event):
 @events_bp.route("", methods=["POST"])
 @login_required
 def create_event():
+    event = db.get_or_404(
+        ThreatEvent,
+        event_id
+    )
+    return render_template(
+        "event_details.html",
+        event=Event
+    )
     data = request.get_json(silent=True) or {}
 
     event_type = data.get("event_type")
@@ -70,3 +84,17 @@ def list_events():
 def get_event(event_id):
     event = db.get_or_404(ThreatEvent, event_id)
     return jsonify(event_to_dict(event))
+
+@events_bp.route("/<int:event_id>/detail")
+@login_required
+def event_detail(event_id):
+
+    event = db.get_or_404(
+        ThreatEvent,
+        event_id
+    )
+
+    return render_template(
+        "event_detail.html",
+        event=event
+    )

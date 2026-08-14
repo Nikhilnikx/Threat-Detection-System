@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Upload Logs · Threat Detection System{% endblock %}
+
+{% block content %}
+<h1>Upload Threat Event Log</h1>
+<p class="muted">Accepted formats: .log, .txt, .csv (max 20 MB)</p>
+
+<form method="POST" enctype="multipart/form-data" class="upload-form">
+
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="file" name="logfile" accept=".log,.txt,.csv" required>
+    <button type="submit" class="btn-primary">
+        Upload & Parse</button>
+</form>
+
+<p><a href="{{ url_for('upload.list_events') }}">View collected events →</a></p>
+{% endblock %}

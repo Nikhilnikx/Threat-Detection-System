@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="page-header">
+
+    <div>
+
+        <p class="eyebrow">
+            THREAT DETECTION SYSTEM
+        </p>
+
+
+        <h1>
+            Alert Investigation
+        </h1>
+
+    </div>
+
+
+    <a href="/dashboard" class="back-btn">
+        Dashboard
+    </a>
+
+
+</div>
+
+
+
+<div class="card alert-card">
+
+
+    <h2>
+        Alert #{{ alert.id }}
+    </h2>
+
+
+
+    <div class="detail-grid">
+
+
+        <div class="detail-item">
+
+            <strong>
+                Event ID
+            </strong>
+
+            <span>
+                {{ alert.event_id }}
+            </span>
+
+        </div>
+
+
+
+        <div class="detail-item">
+
+            <strong>
+                Status
+            </strong>
+
+            <span class="badge {{alert.status}}">
+                {{ alert.status }}
+            </span>
+
+        </div>
+
+
+
+
+        <div class="detail-item">
+
+            <strong>
+                Severity
+            </strong>
+
+            <span class="badge {{alert.severity}}">
+                {{ alert.severity }}
+            </span>
+
+        </div>
+
+
+
+
+        <div class="detail-item">
+
+            <strong>
+                Risk Score
+            </strong>
+
+            <span>
+                {{ alert.risk_score }}/100
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <hr>
+
+
+
+    <div class="description-box">
+
+        <h3>
+            Title
+        </h3>
+
+
+        <p>
+            {{ alert.title }}
+        </p>
+
+
+
+        <h3>
+            Description
+        </h3>
+
+
+        <p>
+            {{ alert.description }}
+        </p>
+
+
+    </div>
+
+
+<button id="resolve-alert">
+    Mark Resolved
+</button>
+
+
+</div>
+
+<script>
+    const alertId = {{ alert.id }};
+    </script>
+    
+<script src="{{ url_for('static', filename='js/alert_detail.js') }}"></script>
+
+
+
+
+    
+   
+
+
+
+{% endblock %}

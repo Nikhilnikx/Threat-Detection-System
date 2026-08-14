@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Collected Events · Threat Detection System{% endblock %}
+
+{% block content %}
+<h1>Collected Events</h1>
+<p><a href="{{ url_for('upload.upload_file') }}">← Upload another file</a></p>
+
+<table class="events-table">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Source IP</th>
+            <th>User</th>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Parsed</th>
+            <th>Source File</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in entries %}
+        <tr class="{{ 'unparsed-row' if not e.parsed }}">
+            <td>{{ e.timestamp or '—' }}</td>
+            <td>{{ e.source_ip or '—' }}</td>
+            <td>{{ e.username or '—' }}</td>
+            <td>{{ e.action or '—' }}</td>
+            <td>{{ e.status or '—' }}</td>
+            <td>{{ '✔' if e.parsed else '✘' }}</td>
+            <td>{{ e.source_file }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7">No events collected yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {% if pagination.has_prev %}
+        <a href="{{ url_for('upload.list_events', page=pagination.prev_num) }}">← Prev</a>
+    {% endif %}
+    <span>Page {{ pagination.page }} of {{ pagination.pages or 1 }}</span>
+    {% if pagination.has_next %}
+        <a href="{{ url_for('upload.list_events', page=pagination.next_num) }}">Next →</a>
+    {% endif %}
+</div>
+{% endblock %}

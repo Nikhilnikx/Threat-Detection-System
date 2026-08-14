@@ -13,6 +13,7 @@ from flask import g, request
 def configure_monitoring(app):
     log_directory = os.path.join(app.instance_path, "logs")
     os.makedirs(log_directory, exist_ok=True)
+
     log_file = os.path.join(log_directory, "application.log")
 
     if not any(
@@ -20,13 +21,22 @@ def configure_monitoring(app):
         and handler.baseFilename == log_file
         for handler in app.logger.handlers
     ):
-        handler = RotatingFileHandler(log_file, maxBytes=1_000_000, backupCount=3)
-        handler.setFormatter(logging.Formatter(
-            "%(asctime)s %(levelname)s %(message)s"
-        ))
+        handler = RotatingFileHandler(
+            log_file,
+            maxBytes=1_000_000,
+            backupCount=3
+        )
+
+        handler.setFormatter(
+            logging.Formatter(
+                "%(asctime)s %(levelname)s %(message)s"
+            )
+        )
+
         app.logger.addHandler(handler)
 
     app.logger.setLevel(logging.INFO)
+
     app.extensions["monitoring_stats"] = {
         "started_at": datetime.now(timezone.utc),
         "request_count": 0,
@@ -34,16 +44,30 @@ def configure_monitoring(app):
         "log_file": log_file,
     }
 
+
     @app.before_request
     def start_request_timer():
         g.request_started_at = perf_counter()
 
+
     @app.after_request
     def log_request(response):
+
         stats = app.extensions["monitoring_stats"]
+
         stats["request_count"] += 1
         stats["status_codes"][str(response.status_code)] += 1
-        duration_ms = (perf_counter() - g.request_started_at) * 1000
+
+        # Safe fallback if before_request was skipped
+        start_time = getattr(
+            g,
+            "request_started_at",
+            perf_counter()
+        )
+
+        duration_ms = (perf_counter() - start_time) * 1000
+
+
         app.logger.info(
             "method=%s path=%s status=%s ip=%s duration_ms=%.2f",
             request.method,
@@ -52,4 +76,5 @@ def configure_monitoring(app):
             request.remote_addr,
             duration_ms,
         )
+
         return response

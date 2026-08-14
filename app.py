@@ -80,7 +80,7 @@ def create_app(env=None):
     from routes.alert_routes import alerts_bp
     from routes.dashboard_routes import dashboard_bp
     from routes.event_routes import events_bp
-    from routes.monitoring_routes import monitoring_bp
+    from routes.upload_routes import upload_bp
     # from routes.dashboard_routes import dashboard_bp
     # from routes.upload_routes import upload_bp
     # from routes.report_routes import report_bp
@@ -88,13 +88,13 @@ def create_app(env=None):
     app.register_blueprint(alerts_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(events_bp)
-    app.register_blueprint(monitoring_bp)
+    app.register_blueprint(upload_bp)
     # app.register_blueprint(dashboard_bp)
     # app.register_blueprint(upload_bp)
     # app.register_blueprint(report_bp)
 
     # --- Import models so SQLAlchemy is aware of them before create_all() ---
-    from models import alert, event, user
+    from models import alert, event, log_entry, user
     @login_manager.user_loader
     def load_user(user_id):
         from models.user import User
