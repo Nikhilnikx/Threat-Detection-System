@@ -1,0 +1,526 @@
+* {
+    box-sizing: border-box;
+}
+
+body.login-page {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #164e63, #020617 55%);
+    color: #e2e8f0;
+    font-family: Inter, Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* MAIN WRAPPER */
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* BRAND */
+
+.login-brand {
+    position: absolute;
+    top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.login-brand h1 {
+    font-size: 60px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.login-brand span {
+    color: #22d3ee;
+}
+
+.login-brand p {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+/* LOGIN CARD */
+
+.login-glass {
+    width: 560px;
+    padding: 45px;
+    margin-top: 100px;
+    background: rgba(2, 6, 23, .85);
+    border: 1px solid #22d3ee;
+    border-radius: 22px;
+    box-shadow: 0 0 50px rgba(34, 211, 238, .35);
+    backdrop-filter: blur(15px);
+}
+
+.login-glass h2 {
+    text-align: center;
+    font-size: 38px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+
+/* INPUTS */
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.input-box {
+    height: 60px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    background: #020617;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 0 18px;
+}
+
+.input-box span {
+    margin-right: 15px;
+}
+
+.input-box input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+}
+
+.forgot {
+    text-align: right;
+    margin-top: 15px;
+    color: #22d3ee;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient( 90deg, #22d3ee, #06b6d4);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.sso {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #0891b2;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.protected {
+    text-align: center;
+    color: #94a3b8;
+}
+
+
+/* SIDE CARDS */
+
+.side-stats {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.side-stats.left {
+    left: 80px;
+}
+
+.side-stats.right {
+    right: 80px;
+}
+
+.stat-card {
+    width: 230px;
+    padding: 30px;
+    margin: 20px;
+    background: rgba(2, 6, 23, .7);
+    border: 1px solid #0891b2;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(34, 211, 238, .2);
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.secure {
+    color: #4ade80;
+}
+
+
+/* =====================================
+   FINAL AEGIS LOGIN MAC SCREEN FIX
+===================================== */
+
+body.login-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* MAIN CONTAINER */
+
+.login-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+
+
+/* BRAND */
+
+.login-brand {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.login-brand h1 {
+    font-size: 52px !important;
+    line-height: 1;
+}
+
+.login-brand p {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+
+/* LOGIN BOX */
+
+.login-glass {
+    width: 620px !important;
+    min-height: auto;
+    padding: 35px 45px !important;
+    margin: 0 !important;
+    border-radius: 20px;
+    transform: translateY(30px);
+}
+
+.login-glass h2 {
+    font-size: 34px !important;
+    margin-bottom: 12px;
+}
+
+.login-subtitle {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* INPUT */
+
+.input-box {
+    height: 55px !important;
+}
+
+.input-box input {
+    font-size: 16px;
+}
+
+
+/* BUTTON */
+
+.login-glass button {
+    height: 55px !important;
+    margin-top: 18px;
+}
+
+
+/* SSO */
+
+.sso {
+    padding: 14px !important;
+    margin-top: 20px;
+}
+
+
+/* PROTECTED */
+
+.protected {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+
+/* SIDE CARDS */
+
+.side-stats {
+    top: 52%;
+}
+
+.stat-card {
+    width: 230px;
+    padding: 25px !important;
+}
+
+.stat-card strong {
+    font-size: 36px;
+}
+
+.side-stats.left {
+    left: 70px !important;
+}
+
+.side-stats.right {
+    right: 70px !important;
+}
+
+
+/* RESPONSIVE MAC */
+
+@media(max-width:1400px) {
+    .login-glass {
+        width: 560px !important;
+    }
+    .side-stats.left {
+        left: 30px !important;
+    }
+    .side-stats.right {
+        right: 30px !important;
+    }
+}
+
+@media(max-width:1100px) {
+    .side-stats {
+        display: none;
+    }
+}
+
+
+/* ==============================
+   LOGIN CARD SIZE REDUCTION
+============================== */
+
+.login-glass {
+    width: 500px !important;
+    /* reduced from 620px */
+    padding: 30px 35px !important;
+    transform: translateY(20px);
+}
+
+
+/* Reduce heading */
+
+.login-glass h2 {
+    font-size: 30px !important;
+}
+
+
+/* Reduce subtitle */
+
+.login-subtitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+
+/* Smaller input boxes */
+
+.input-box {
+    height: 50px !important;
+}
+
+
+/* Smaller button */
+
+.login-glass button {
+    height: 52px !important;
+    font-size: 16px;
+}
+
+
+/* Smaller SSO */
+
+.sso {
+    padding: 12px !important;
+    margin-top: 15px;
+}
+
+
+/* Reduce protected text */
+
+.protected {
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+
+/* =====================================
+   AEGIS LOGIN COMPACT MODE
+   MAC SCREEN OPTIMIZATION
+===================================== */
+
+
+/* MAIN LOGIN CARD */
+
+.login-glass {
+    width: 470px !important;
+    padding: 28px 36px !important;
+    border-radius: 14px;
+}
+
+
+/* TITLE */
+
+.login-glass h2 {
+    font-size: 28px !important;
+    margin-bottom: 6px;
+}
+
+.login-subtitle {
+    font-size: 15px !important;
+    margin-bottom: 20px;
+}
+
+
+/* DIVIDER */
+
+.divider {
+    margin-bottom: 16px;
+}
+
+
+/* LABELS */
+
+.login-glass label {
+    font-size: 15px;
+}
+
+
+/* INPUT BOX */
+
+.input-box {
+    height: 48px !important;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+
+.input-box span {
+    font-size: 17px;
+}
+
+.input-box input {
+    font-size: 14px;
+}
+
+
+/* FORGOT PASSWORD */
+
+.forgot {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-glass button {
+    height: 50px !important;
+    font-size: 17px !important;
+    border-radius: 10px;
+}
+
+
+/* SSO BUTTON */
+
+.sso {
+    height: 45px;
+    font-size: 15px;
+    margin-top: 18px;
+}
+
+
+/* FOOTER TEXT */
+
+.protected {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+
+/* =====================================
+   SIDE STAT CARDS
+===================================== */
+
+.side-stats.left {
+    left: 50px !important;
+}
+
+.side-stats.right {
+    right: 50px !important;
+}
+
+.stat-card {
+    width: 190px !important;
+    padding: 20px !important;
+    border-radius: 12px;
+}
+
+.stat-card h4 {
+    font-size: 10px !important;
+    margin-bottom: 12px;
+}
+
+.stat-card strong {
+    font-size: 28px !important;
+}
+
+.stat-card p {
+    font-size: 10px;
+}
+
+
+/* LOGO SLIGHT REDUCTION */
+
+.login-brand h1 {
+    font-size: 48px !important;
+}
+
+.login-brand p {
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE FIX */
+
+@media(max-width:1100px) {
+    .side-stats {
+        display: none;
+    }
+    .login-glass {
+        width: 80% !important;
+    }
+}

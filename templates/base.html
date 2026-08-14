@@ -9,7 +9,7 @@
 
     <title>
         {% block title %}
-        Aegis AI SOC Platform
+        AEGIS AI SOC Platform
         {% endblock %}
     </title>
 
@@ -27,74 +27,109 @@
 <div class="soc-layout">
 
 
-    <!-- SIDEBAR -->
+    <!-- ==========================
+         SIDEBAR
+    =========================== -->
+
 
     <aside class="sidebar">
 
 
-        <div class="logo">
+        <div class="brand">
+
 
             <h2>
                 🛡 AEGIS AI
             </h2>
 
-            <span>
-                SOC PLATFORM
-            </span>
+
+            <p>
+                SECURITY OPERATIONS CENTER
+            </p>
+
 
         </div>
 
 
 
-        <nav>
+        <div class="soc-status">
+
+            <span class="status-dot"></span>
+
+            SOC Online
+
+        </div>
 
 
-            <a href="/dashboard" class="active">
-                ◉ Dashboard
+
+        <nav class="sidebar-menu">
+
+
+            <a href="/dashboard">
+                <span>◉</span>
+                Dashboard
             </a>
+
 
 
             <a href="/alerts">
-                ⚠ Alerts
+                <span>⚠</span>
+                Alerts
             </a>
+
 
 
             <a href="/events">
-                ◌ Events
+                <span>◌</span>
+                Events
             </a>
+
 
 
             <a href="#">
-                🔍 Threat Hunting
+                <span>🔍</span>
+                Threat Hunting
             </a>
+
 
 
             <a href="#">
-                🚨 Incidents
+                <span>🚨</span>
+                Incidents
             </a>
+
 
 
             <a href="#">
-                📊 Reports
+                <span>📊</span>
+                Reports
             </a>
+
 
 
             <a href="#">
-                🤖 AI Assistant
+                <span>🤖</span>
+                AI Analyst
             </a>
+
 
 
             <a href="#">
-                🌐 Threat Intelligence
+                <span>🌐</span>
+                Threat Intel
             </a>
+
 
 
             <a href="#">
-                ⚙ Settings
+                <span>⚙</span>
+                Settings
             </a>
+
 
 
         </nav>
+
 
 
     </aside>
@@ -103,35 +138,61 @@
 
 
 
-    <!-- MAIN AREA -->
+    <!-- ==========================
+            MAIN CONTENT
+    =========================== -->
 
 
     <section class="main-area">
 
 
 
-        <!-- TOP NAV -->
-
         <header class="soc-header">
 
 
-            <input 
-            type="text"
-            placeholder="Search events, IPs, users, alerts..."
-            >
+            <div class="search-box">
+
+
+                <input 
+                type="text"
+                placeholder="Search IPs, users, events, alerts..."
+                >
+
+
+            </div>
 
 
 
-            <div class="profile">
 
-                <span>
+            <div class="header-actions">
+
+
+                <div class="ai-status">
+
+                    🤖 AI Analyst Ready
+
+                </div>
+
+
+
+                <div class="profile">
+
+
+                    <span>
+
                     {{ username }}
-                </span>
+
+                    </span>
 
 
-                <button id="logout">
-                    Sign out
-                </button>
+                    <button id="logout">
+
+                        Sign out
+
+                    </button>
+
+
+                </div>
 
 
             </div>
@@ -143,14 +204,14 @@
 
 
 
-        <!-- PAGE CONTENT -->
+        <main class="page-container">
 
-
-        <main>
 
             {% block content %}
 
+
             {% endblock %}
+
 
         </main>
 
@@ -160,8 +221,8 @@
 
 
 
-</div>
 
+</div>
 
 
 
@@ -171,4 +232,269 @@
 
 </body>
 
+
 </html>
+
+/* ================================
+   AEGIS AI SOC DASHBOARD LAYOUT
+================================ */
+
+
+body {
+    background:#020617;
+    color:#e2e8f0;
+}
+
+
+.soc-layout {
+    display:flex;
+    min-height:100vh;
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar {
+
+    width:260px;
+    background:#020617;
+    border-right:1px solid rgba(34,211,238,.25);
+
+    padding:30px;
+
+}
+
+
+.logo h2 {
+
+    font-size:28px;
+    color:#f8fafc;
+
+}
+
+
+.logo span {
+
+    color:#38bdf8;
+    font-size:14px;
+    letter-spacing:2px;
+
+}
+
+
+
+.sidebar nav {
+
+    margin-top:40px;
+}
+
+
+.sidebar nav a {
+
+    display:block;
+
+    padding:14px 12px;
+
+    margin-bottom:8px;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+}
+
+
+
+.sidebar nav a:hover {
+
+    background:#0f172a;
+
+    color:#22d3ee;
+
+}
+
+
+
+/* MAIN */
+
+.main-area {
+
+    flex:1;
+
+    padding:30px 40px;
+
+}
+
+
+
+
+/* TOP HEADER */
+
+.soc-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.soc-header input {
+
+    width:420px;
+
+    background:#020617;
+
+    border:
+
+    1px solid #334155;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    color:white;
+
+}
+
+
+
+/* PROFILE */
+
+
+.profile {
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+
+.profile button {
+
+    background:#22d3ee;
+
+    color:#022c22;
+
+}
+
+
+
+/* DASHBOARD TITLE */
+
+
+main h1 {
+
+    font-size:48px;
+
+}
+
+
+
+
+/* CARDS */
+
+.cards {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.cards article {
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #172554,
+    #0f172a
+    );
+
+
+    border:
+
+    1px solid rgba(56,189,248,.25);
+
+
+    border-radius:18px;
+
+
+    padding:30px;
+
+
+    box-shadow:
+
+    0 0 25px rgba(34,211,238,.08);
+
+
+}
+
+
+
+.cards span {
+
+    color:#94a3b8;
+
+}
+
+
+
+.cards strong {
+
+    font-size:45px;
+
+    margin-top:20px;
+
+}
+
+
+
+/* PANELS */
+
+
+.panel {
+
+
+background:
+
+linear-gradient(
+145deg,
+#172554,
+#0f172a
+);
+
+
+border:
+
+1px solid rgba(56,189,248,.2);
+
+
+border-radius:18px;
+
+
+padding:30px;
+
+
+margin-top:30px;
+
+
+}

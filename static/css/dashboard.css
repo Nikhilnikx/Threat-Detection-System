@@ -289,94 +289,647 @@ hr {
 }
 
 
-/* =========================
-   LOGIN PAGE
-========================= */
+/* =====================================
+   FINAL AEGIS LOGIN POSITION FIX
+===================================== */
 
-.login-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+body.login-page {
+    overflow: hidden;
+}
+
+
+/* LOGO */
+
+.login-brand {
+    top: 45px !important;
+}
+
+.login-brand h1 {
+    font-size: 58px !important;
+}
+
+.login-brand p {
+    font-size: 18px;
+}
+
+
+/* MAIN WRAPPER */
+
+.login-wrapper {
+    padding-top: 180px !important;
     align-items: center;
 }
 
-.login-card {
-    width: 410px;
-    padding: 20px;
-    background: #17233d;
-    border: 1px solid #30456d;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+/* LOGIN CARD */
+
+.login-glass {
+    width: 620px !important;
+    min-height: 620px;
+    padding: 45px 50px !important;
+    margin-top: 100px !important;
 }
 
-.brand {
-    color: #38bdf8;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+.login-glass h2 {
+    font-size: 38px !important;
 }
 
-.login-card h1 {
-    font-size: 32px;
-    line-height: 1.1;
-    margin: 0 0 5px 0;
+.login-subtitle {
+    margin-bottom: 40px;
+}
+
+
+/* INPUT */
+
+.input-box {
+    height: 58px !important;
+}
+
+.input-box input {
+    font-size: 16px;
+}
+
+
+/* BUTTON */
+
+.login-glass button {
+    height: 60px;
+    margin-top: 15px;
+}
+
+
+/* SIDE CARDS */
+
+.side-stats {
+    top: 55% !important;
+}
+
+.side-stats.left {
+    left: 70px !important;
+}
+
+.side-stats.right {
+    right: 70px !important;
+}
+
+.stat-card {
+    width: 260px !important;
+    height: 165px !important;
+}
+
+.stat-card strong {
+    font-size: 38px !important;
+}
+
+
+/* MOBILE PROTECTION */
+
+@media(max-width:1200px) {
+    .side-stats {
+        display: none;
+    }
+    .login-glass {
+        width: 90%!important;
+    }
+}
+
+
+/* =====================================
+   AEGIS AI LOGIN FORCE OVERRIDE
+===================================== */
+
+body.login-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh;
+    background: radial-gradient( circle at center, rgba(0, 255, 255, .15), transparent 45%), #020617 !important;
+}
+
+
+/* MAIN */
+
+.login-wrapper {
+    min-height: 100vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+
+/* LOGO */
+
+.login-brand {
+    position: absolute !important;
+    top: 40px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+}
+
+.login-brand h1 {
+    font-size: 64px !important;
     color: #e2e8f0;
 }
 
-.subtitle {
+.login-brand h1 span {
+    color: #22d3ee;
+}
+
+.login-brand p {
     color: #cbd5e1;
-    font-size: 16px;
-    line-height: 1.3;
-    margin-bottom: 18px;
 }
 
-.form-group {
+
+/* LOGIN BOX */
+
+.login-glass {
+    width: 600px !important;
+    margin-top: 120px !important;
+    padding: 45px !important;
+    background: rgba(2, 6, 23, .85) !important;
+    border: 1px solid #22d3ee !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 50px rgba(34, 211, 238, .35);
+}
+
+.login-glass h2 {
+    font-size: 40px !important;
+    text-align: center;
+}
+
+.login-subtitle {
+    text-align: center;
+}
+
+
+/* INPUTS */
+
+.input-box {
+    height: 60px !important;
+    background: #020617 !important;
+    border: 1px solid #334155 !important;
+}
+
+.input-box input {
+    color: white !important;
+}
+
+
+/* BUTTON */
+
+.login-glass button {
+    height: 60px !important;
+    background: linear-gradient( 90deg, #22d3ee, #06b6d4) !important;
+    font-size: 20px;
+}
+
+
+/* SIDE CARDS */
+
+.side-stats {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.side-stats.left {
+    left: 80px !important;
+}
+
+.side-stats.right {
+    right: 80px !important;
+}
+
+.stat-card {
+    width: 260px !important;
+    padding: 30px !important;
+    background: rgba(2, 6, 23, .75) !important;
+    border: 1px solid #0891b2 !important;
+    border-radius: 18px !important;
+}
+
+.stat-card strong {
+    font-size: 40px !important;
+}
+
+@media(max-width:1200px) {
+    .side-stats {
+        display: none!important;
+    }
+}
+
+
+/* ================================
+   AEGIS AI SOC DASHBOARD LAYOUT
+================================ */
+
+body {
+    background: #020617;
+    color: #e2e8f0;
+}
+
+.soc-layout {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 14px;
+    min-height: 100vh;
 }
 
-.form-group label {
-    color: #e2e8f0;
-    font-size: 15px;
-    margin-bottom: 6px;
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 260px;
+    background: #020617;
+    border-right: 1px solid rgba(34, 211, 238, .25);
+    padding: 30px;
 }
 
-.form-group input {
-    width: 100%;
-    height: 36px;
-    padding: 0 12px;
-    border-radius: 7px;
-    border: 1px solid #344b75;
-    background: #111b30;
-    color: #e2e8f0;
+.logo h2 {
+    font-size: 28px;
+    color: #f8fafc;
+}
+
+.logo span {
+    color: #38bdf8;
     font-size: 14px;
+    letter-spacing: 2px;
 }
 
-.form-group input:focus {
-    outline: none;
-    border-color: #38bdf8;
+.sidebar nav {
+    margin-top: 40px;
 }
 
-.login-card button {
-    width: auto;
-    padding: 8px 16px;
-    margin-top: 2px;
-    border-radius: 6px;
-    background: #38bdf8;
-    color: #082f49;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
+.sidebar nav a {
+    display: block;
+    padding: 14px 12px;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    text-decoration: none;
+    border-radius: 10px;
 }
 
-.login-card button:hover {
-    opacity: 0.85;
+.sidebar nav a:hover {
+    background: #0f172a;
+    color: #22d3ee;
 }
 
-#error-message {
-    margin-top: 14px;
-    color: #fb7185;
+
+/* MAIN */
+
+.main-area {
+    flex: 1;
+    padding: 30px 40px;
+}
+
+
+/* TOP HEADER */
+
+.soc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.soc-header input {
+    width: 420px;
+    background: #020617;
+    border: 1px solid #334155;
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: white;
+}
+
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.profile button {
+    background: #22d3ee;
+    color: #022c22;
+}
+
+
+/* DASHBOARD TITLE */
+
+main h1 {
+    font-size: 48px;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.cards article {
+    background: linear-gradient( 145deg, #172554, #0f172a);
+    border: 1px solid rgba(56, 189, 248, .25);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(34, 211, 238, .08);
+}
+
+.cards span {
+    color: #94a3b8;
+}
+
+.cards strong {
+    font-size: 45px;
+    margin-top: 20px;
+}
+
+
+/* PANELS */
+
+.panel {
+    background: linear-gradient( 145deg, #172554, #0f172a);
+    border: 1px solid rgba(56, 189, 248, .2);
+    border-radius: 18px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+
+/* =====================================
+   AEGIS SOC DASHBOARD FINAL POLISH
+===================================== */
+
+
+/* BODY */
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 230px !important;
+    padding: 25px !important;
+}
+
+.logo h2 {
+    font-size: 26px !important;
+}
+
+.logo span {
+    font-size: 13px;
+}
+
+.sidebar nav {
+    margin-top: 35px;
+}
+
+.sidebar nav a {
     font-size: 16px;
+    padding: 12px 10px;
+}
+
+
+/* MAIN AREA */
+
+.main-area {
+    padding: 25px 35px !important;
+}
+
+
+/* HEADER */
+
+.soc-header {
+    margin-bottom: 25px;
+}
+
+.soc-header input {
+    width: 350px;
+    height: 45px;
+    font-size: 14px;
+}
+
+
+/* PROFILE */
+
+.profile {
+    font-size: 16px;
+}
+
+
+/* TITLE */
+
+main h1 {
+    font-size: 42px !important;
+    max-width: 900px;
+    line-height: 1.15;
+}
+
+
+/* SECTION LABEL */
+
+.eyebrow {
+    font-size: 13px;
+}
+
+
+/* CARDS */
+
+.cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cards article {
+    padding: 22px;
+    height: 160px;
+}
+
+.cards span {
+    font-size: 16px;
+}
+
+.cards strong {
+    font-size: 38px;
+    margin-top: 15px;
+}
+
+
+/* THREAT SCORE CARD */
+
+.cards article:nth-child(4) {
+    width: 320px;
+}
+
+
+/* PANELS */
+
+.panel {
+    padding: 22px;
+}
+
+
+/* RESPONSIVE MAC SCREEN */
+
+@media(max-width:1400px) {
+    .sidebar {
+        width: 210px !important;
+    }
+    .main-area {
+        padding: 25px !important;
+    }
+    main h1 {
+        font-size: 38px !important;
+    }
+    .cards article {
+        height: 145px;
+    }
+    .cards strong {
+        font-size: 34px;
+    }
+}
+
+
+/* =====================================
+   FIXED SIDEBAR + SCROLLABLE CONTENT
+===================================== */
+
+
+/* Stop whole page scrolling */
+
+body {
+    overflow: hidden;
+}
+
+
+/* Main layout */
+
+.soc-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* FIXED SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 230px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #020617;
+    border-right: 1px solid rgba(34, 211, 238, .25);
+    z-index: 1000;
+}
+
+
+/* MAIN CONTENT AREA */
+
+.main-area {
+    margin-left: 230px;
+    width: calc(100% - 230px);
+    height: 100vh;
+    overflow-y: auto;
+    padding: 30px 40px;
+}
+
+
+/* Keep scrollbar clean */
+
+.main-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-area::-webkit-scrollbar-thumb {
+    background: #164e63;
+    border-radius: 10px;
+}
+
+
+/* Sidebar scrollbar */
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #0891b2;
+    border-radius: 10px;
+}
+
+
+/* Sticky header inside dashboard */
+
+.soc-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #020617;
+    padding-bottom: 20px;
+}
+
+
+/* =====================================
+   DASHBOARD CARDS SMALLER SIZE
+===================================== */
+
+
+/* Cards container */
+
+.cards {
+    gap: 18px;
+}
+
+
+/* Individual cards */
+
+.cards article {
+    padding: 18px;
+    height: 120px;
+    border-radius: 14px;
+}
+
+
+/* Card title */
+
+.cards span {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+
+/* Card numbers */
+
+.cards strong {
+    font-size: 32px;
+    margin-top: 12px;
+}
+
+
+/* Threat score card */
+
+.cards article:nth-child(4) {
+    width: 260px;
+    height: 120px;
+}
+
+
+/* Responsive adjustment */
+
+@media(max-width:1400px) {
+    .cards article {
+        height: 110px;
+        padding: 16px;
+    }
+    .cards strong {
+        font-size: 30px;
+    }
 }
