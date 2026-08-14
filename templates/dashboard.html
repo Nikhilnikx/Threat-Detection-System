@@ -1,28 +1,248 @@
-s<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard | Threat Detection System</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-</head>
-<body>
-  <header class="topbar">
-    <div><p class="eyebrow">Threat Detection System</p><h1>Security dashboard</h1></div>
-    <div class="user-actions"><span>{{ username }}</span><button id="logout">Sign out</button></div>
-  </header>
-  <main>
-    <section class="cards" aria-label="Security overview">
-      <article><span>Total events</span><strong id="total-events">—</strong></article>
-      <article><span>Open alerts</span><strong id="open-alerts">—</strong></article>
-      <article><span>Critical events</span><strong id="critical-events">—</strong></article>
-    </section>
-    <section class="panel"><h2>Risk breakdown</h2><div id="risk-breakdown" class="breakdown"></div></section>
-    <section class="grid">
-      <article class="panel"><h2>Recent events</h2><div id="recent-events"></div></article>
-      <article class="panel"><h2>Open alerts</h2><div id="recent-alerts"></div></article>
-    </section>
-  </main>
-  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% block title %}
+Aegis AI | Security Operations Center
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="soc-title">
+
+
+<p class="eyebrow">
+SECURITY OPERATIONS CENTER
+</p>
+
+
+<h1>
+Real-Time Threat Detection & Monitoring
+</h1>
+
+
+</section>
+
+
+
+
+
+<section class="cards">
+
+
+<article>
+
+<span>
+Total Events
+</span>
+
+
+<strong id="total-events">
+—
+</strong>
+
+
+</article>
+
+
+
+
+<article>
+
+<span>
+Critical Alerts
+</span>
+
+
+<strong id="critical-events">
+—
+</strong>
+
+
+</article>
+
+
+
+
+
+<article>
+
+<span>
+Open Incidents
+</span>
+
+
+<strong id="open-alerts">
+—
+</strong>
+
+
+</article>
+
+
+
+
+
+<article>
+
+<span>
+Threat Score
+</span>
+
+
+<strong>
+90/100
+</strong>
+
+
+</article>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="dashboard-grid">
+
+
+
+<div class="panel">
+
+
+<h2>
+Global Threat Map
+</h2>
+
+
+<div class="map-placeholder">
+
+🌎
+
+Threat Activity Map
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+Recent Alerts
+</h2>
+
+
+<div id="recent-alerts">
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="dashboard-grid">
+
+
+
+<div class="panel">
+
+
+<h2>
+Alert Severity
+</h2>
+
+
+<div id="risk-breakdown">
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="panel">
+
+
+<h2>
+AI Security Assistant 🤖
+</h2>
+
+
+<div class="ai-box">
+
+
+<p>
+Hello {{ username }}.
+</p>
+
+
+<p>
+I am Aegis AI Security Analyst.
+</p>
+
+
+<button>
+Summarize Threats
+</button>
+
+
+<button>
+Generate Report
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="panel">
+
+
+<h2>
+Latest Security Events
+</h2>
+
+
+<div id="recent-events">
+
+</div>
+
+
+</section>
+
+
+
+{% endblock %}

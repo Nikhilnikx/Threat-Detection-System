@@ -1,25 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Threat Detection System{% endblock %}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Aegis AI SOC Platform
+        {% endblock %}
+    </title>
+
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+
 </head>
+
 
 <body>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash {{ category }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
 
-    {% block content %}{% endblock %}
+<div class="soc-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>
+                🛡 AEGIS AI
+            </h2>
+
+            <span>
+                SOC PLATFORM
+            </span>
+
+        </div>
+
+
+
+        <nav>
+
+
+            <a href="/dashboard" class="active">
+                ◉ Dashboard
+            </a>
+
+
+            <a href="/alerts">
+                ⚠ Alerts
+            </a>
+
+
+            <a href="/events">
+                ◌ Events
+            </a>
+
+
+            <a href="#">
+                🔍 Threat Hunting
+            </a>
+
+
+            <a href="#">
+                🚨 Incidents
+            </a>
+
+
+            <a href="#">
+                📊 Reports
+            </a>
+
+
+            <a href="#">
+                🤖 AI Assistant
+            </a>
+
+
+            <a href="#">
+                🌐 Threat Intelligence
+            </a>
+
+
+            <a href="#">
+                ⚙ Settings
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+
+
+    <!-- MAIN AREA -->
+
+
+    <section class="main-area">
+
+
+
+        <!-- TOP NAV -->
+
+        <header class="soc-header">
+
+
+            <input 
+            type="text"
+            placeholder="Search events, IPs, users, alerts..."
+            >
+
+
+
+            <div class="profile">
+
+                <span>
+                    {{ username }}
+                </span>
+
+
+                <button id="logout">
+                    Sign out
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+
+
+        <!-- PAGE CONTENT -->
+
+
+        <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+
+
+
+    </section>
+
+
+
+</div>
+
+
+
+
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
 
 </body>
+
 </html>
